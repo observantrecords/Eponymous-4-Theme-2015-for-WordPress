@@ -46,9 +46,6 @@ if ( count( $album_entries ) > 0 ):
 	endforeach;
 endif;
 
-echo '<pre>';
-print_r($albums);
-echo '</pre>';
 ?>
 <?php get_header(); ?>
 
@@ -92,7 +89,7 @@ echo '</pre>';
 							<?php $r++; ?>
 						<?php endif; ?>
 				<?php endforeach; ?>
-				<?php if ($r-1 % 4 != 0):?>
+				<?php if ( ( $r > 1 && $r-1 % 4 != 0 ) || $r == 1 ):?>
 		</div>
 				<?php endif; ?>
 			<?php endforeach; ?>
