@@ -1,0 +1,54 @@
+/* 
+    Document   : typography
+    Created on : Sep 10, 2011, 11:15:46 AM
+    Author     : Greg Bueno
+    Description:
+        Uses the Minimalist Design and Sleepy Hollow color schemes from the
+	Color Schemer Gallery.
+*/
+a {
+  color: #304b75;
+}
+a:hover {
+  color: #f16543;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  color: #3e4561;
+}
+h3[property='dc:title'] a {
+  text-decoration: none;
+}
+#title {
+  font-family: 'Merriweather Sans', 'Lucida Sans Unicode', sans-serif;
+  text-transform: lowercase;
+}
+#title a {
+  text-decoration: none;
+  color: #3e4561;
+}
+#content {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
+.form_hidden {
+  display: none;
+}
+.smaller {
+  font-size: smaller;
+}
+.button {
+  font-size: 120%;
+  text-decoration: none;
+  color: #FFF;
+}
+.button:hover {
+  color: #FFF;
+}
+table.track-table {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
