@@ -72,7 +72,12 @@ endif;
 							<td class="track-column"><?php echo $track->track_track_num; ?></td>
 							<td>
 								<?php if ((boolean) $track->track_is_visible === true && !empty( $track->track_alias ) ): ?>
-									<a href="<?php echo esc_url( '/track/' . $track->track_alias ); ?>"><?php echo $track->song->song_title; ?></a>
+									<?php $track_query = new \WP_Query( array( 'meta_key' => '_ob_track_alias', 'meta_value' => $track->track_alias, 'post_type' => 'track' ) ); ?>
+									<?php if (!empty( $track_query->posts[0] ) ): ?>
+									<a href="<?php echo get_permalink( $track_query->posts[0]->ID ); ?>"><?php echo $track->song->song_title; ?></a>
+									<?php else: ?>
+										<?php echo $track->song->song_title; ?>
+									<?php endif; ?>
 								<?php else: ?>
 									<?php echo $track->song->song_title; ?>
 								<?php endif; ?>
