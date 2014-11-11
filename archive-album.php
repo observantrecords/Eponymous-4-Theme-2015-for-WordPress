@@ -17,10 +17,10 @@ use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Artist;
 use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Release;
 
 $album_model = new Album();
-$lps = $album_model->getManyBy( 'album_format_id', 1,  array( 'order_by' => 'album_release_date desc' ) );
-$eps = $album_model->getManyBy( 'album_format_id', 3,  array( 'order_by' => 'album_release_date desc' ) );
-$singles = $album_model->getManyBy( 'album_format_id', 2,  array( 'order_by' => 'album_release_date desc' ) );
-$compilations = $album_model->getManyBy( 'album_format_id', 4,  array( 'order_by' => 'album_release_date desc' ) );
+$lps = $album_model->getManyBy( 'album_format_id', 1,  array( 'order_by' => 'album_order' ) );
+$eps = $album_model->getManyBy( 'album_format_id', 3,  array( 'order_by' => 'album_order' ) );
+$singles = $album_model->getManyBy( 'album_format_id', 2,  array( 'order_by' => 'album_order' ) );
+$compilations = $album_model->getManyBy( 'album_format_id', 4,  array( 'order_by' => 'album_order' ) );
 
 $albums = array(
 	'Albums' => $lps,
@@ -66,7 +66,7 @@ endif;
 		<div class="row">
 				<?php endif; ?>
 				<?php foreach ($releases as $album): ?>
-						<?php if (false !== ( array_search( $album->album_alias, $album_aliases ) )): ?>
+						<?php if ( ( false !== ( array_search( $album->album_alias, $album_aliases ) ) ) && (boolean) $album->album_is_visible === true ): ?>
 							<?php $album->release = $release_model->get( $album->album_primary_release_id ); ?>
 							<?php $album->artist = $artist_model->get( $album->album_artist_id ); ?>
 							<?php $cover_url_base = TemplateTags::get_cdn_uri() . '/artists/' . $album->artist->artist_alias . '/albums/' . $album->album_alias . '/' . strtolower($album->release->release_catalog_num) . '/images'; ?>
