@@ -8,7 +8,6 @@
 
 namespace ObservantRecords\WordPress\Themes\Eponymous4;
 
-use \ObservantRecords\WordPress\Themes\ObservantRecords2015\TemplateTags;
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes();?>>
