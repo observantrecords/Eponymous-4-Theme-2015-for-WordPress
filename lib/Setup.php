@@ -38,13 +38,9 @@ class Setup {
 
 	public static function wp_enqueue_styles() {
 		wp_dequeue_style( 'observantrecords2015-style' );
-		wp_dequeue_style( 'observantrecords2015-typography' );
-		wp_dequeue_style( 'observantrecords2015-layout' );
 
+        wp_enqueue_style( 'eponymous42015-fonts', '//fonts.googleapis.com/css?family=Merriweather+Sans:400,700,700italic,400italic' );
 		wp_enqueue_style( 'eponymous42015-style', get_stylesheet_uri() );
-		wp_enqueue_style( 'eponymous42015-typography', get_stylesheet_directory_uri() . '/css/typography.css' );
-		wp_enqueue_style( 'eponymous42015-layout', get_stylesheet_directory_uri() . '/css/layout.css' );
-		wp_enqueue_style( 'eponymous42015-fonts', '//fonts.googleapis.com/css?family=Merriweather+Sans:400,700,700italic,400italic' );
 	}
 
 }

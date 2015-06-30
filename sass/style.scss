@@ -8,4 +8,7 @@ Version: 1.0
 Text Domain: eponymous4
 */
 
-@import url( '../observantrecords2015/style.css' );
+@import "../observantrecords2015/style.css";
+@import "variables.scss";
+@import "layout.scss";
+@import "typography.scss";
