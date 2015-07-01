@@ -37,9 +37,11 @@ namespace ObservantRecords\WordPress\Themes\Eponymous4;
 				</h1>
 			</header>
 
-			<nav id="nav-column-1" class="col-md-6">
+			<nav id="nav-header" class="col-md-6">
 				<?php $nav_menu_args = array( 'theme_location' => 'primary', 'items_wrap' => '<ul id="%1$s" class="%2$s links">%3$s</ul>' ); ?>
 				<?php if ( function_exists( 'bootstrap_page_menu' ) ) { $nav_menu_args[ 'fallback_cb' ] = 'bootstrap_page_menu'; } ?>
 				<?php wp_nav_menu( $nav_menu_args ); ?>
 			</nav>
 		</div>
+
+		<div id="content" class="row">

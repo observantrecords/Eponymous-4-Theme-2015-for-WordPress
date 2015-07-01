@@ -74,11 +74,11 @@ endif;
 
 				<p>
 					<a href="/releases/<?php echo $album->album_alias; ?>">
-						<img src="<?php echo $cover_url_base; ?>/cover_front_medium.jpg" width="200" alt="<?php echo $album->album_title; ?>" title="<?php echo $album->album_title; ?>" />
+						<img src="<?php echo $cover_url_base; ?>/cover_front_medium.jpg" width="100%" alt="<?php echo $album->album_title; ?>" title="<?php echo $album->album_title; ?>" />
 					</a>
 				</p>
 
-				<ul class="release-list-info">
+				<ul class="list-unstyled">
 					<li><strong><a href="/releases/<?php echo $album->album_alias; ?>"><?php echo $album->album_title; ?></a></strong></li>
 				</ul>
 			</div>

@@ -10,23 +10,21 @@
 
 a {
 	color: $medium-blue;
+	&:hover {
+		color: $flat-red;
+	}
 }
 
-a:hover {
-	color: $flat-red;
+body {
+	font-family: $font-family-base;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Helvetica', 'Arial', sans-serif;
 	color: $flat-black;
 }
 
-h3[property='dc:title'] a {
-	text-decoration: none;
-}
-
 #masthead a, #masthead a:hover {
-  color: inherit;
+	color: $flat-black;
 }
 
 #title {
@@ -38,28 +36,3 @@ h3[property='dc:title'] a {
 	}
 }
 
-#content {
-	font-family: 'Helvetica', 'Arial', sans-serif;
-}
-
-.form_hidden {
-	display: none;
-}
-
-.smaller {
-	font-size: smaller;
-}
-
-.button {
-	font-size: 120%;
-	text-decoration: none;
-	color: #FFF;
-}
-
-.button:hover {
-	color: #FFF;
-}
-
-table.track-table {
-	font-family: 'Helvetica', 'Arial', sans-serif;
-}
