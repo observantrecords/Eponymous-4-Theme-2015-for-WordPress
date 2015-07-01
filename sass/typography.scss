@@ -1,0 +1,38 @@
+/* 
+    Document   : typography
+    Created on : Sep 10, 2011, 11:15:46 AM
+    Author     : Greg Bueno
+    Description:
+        Uses the Minimalist Design and Sleepy Hollow color schemes from the
+	Color Schemer Gallery.
+*/
+
+
+a {
+	color: $medium-blue;
+	&:hover {
+		color: $flat-red;
+	}
+}
+
+body {
+	font-family: $font-family-base;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $flat-black;
+}
+
+#masthead a, #masthead a:hover {
+	color: $flat-black;
+}
+
+#title {
+	font-family: 'Merriweather Sans', 'Lucida Sans Unicode', sans-serif;
+	text-transform: lowercase;
+	a {
+		text-decoration: none;
+		color: $flat-black;
+	}
+}
+

@@ -1,0 +1,69 @@
+/*
+Theme Name: Eponymous 4 2015
+Author: Greg Bueno
+Author URI: http://vigilantmedia.com/
+Description: A WordPress theme customized for Eponymous 4, based on the Observant Records theme.
+Template: observantrecords2015
+Version: 2.0
+Text Domain: eponymous4
+*/
+@import url(../observantrecords2015/style.css);
+/*
+    Document   : layout
+    Created on : Sep 10, 2011, 12:15:55 AM
+    Author     : Greg Bueno
+    Description:
+        Uses the Minimalist, Sleepy Hollow and My Crazy Flat UI Status color schemes from the
+	Color Schemer Gallery.
+*/
+body {
+  background-color: #F0F0F0;
+  color: #3E4561; }
+
+#masthead {
+  background-color: inherit;
+  background-image: none; }
+
+#content #featured {
+  margin-bottom: 1.5em; }
+
+table.track-table {
+  margin-top: 1em; }
+  table.track-table thead th {
+    border: 1px solid #3E4561;
+    background-color: #F16543; }
+  table.track-table tbody tr:nth-child(2n) td {
+    background-color: inherit; }
+  table.track-table tbody td {
+    border: 1px solid #3E4561; }
+
+/* 
+    Document   : typography
+    Created on : Sep 10, 2011, 11:15:46 AM
+    Author     : Greg Bueno
+    Description:
+        Uses the Minimalist Design and Sleepy Hollow color schemes from the
+	Color Schemer Gallery.
+*/
+a {
+  color: #304B75; }
+  a:hover {
+    color: #F16543; }
+
+body {
+  font-family: "Istok Web", "Helvetica", "Arial", sans-serif; }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #3E4561; }
+
+#masthead a, #masthead a:hover {
+  color: #3E4561; }
+
+#title {
+  font-family: 'Merriweather Sans', 'Lucida Sans Unicode', sans-serif;
+  text-transform: lowercase; }
+  #title a {
+    text-decoration: none;
+    color: #3E4561; }
+
+/*# sourceMappingURL=style.dev.css.map */

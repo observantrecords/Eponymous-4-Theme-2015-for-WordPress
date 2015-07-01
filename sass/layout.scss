@@ -1,0 +1,43 @@
+/*
+    Document   : layout
+    Created on : Sep 10, 2011, 12:15:55 AM
+    Author     : Greg Bueno
+    Description:
+        Uses the Minimalist, Sleepy Hollow and My Crazy Flat UI Status color schemes from the
+	Color Schemer Gallery.
+*/
+
+body {
+	background-color: $flat-white;
+	color: $flat-black;
+}
+
+#masthead {
+	background-color: inherit;
+	background-image: none;
+}
+
+#content {
+	#featured {
+		margin-bottom: 1.5em;
+	}
+}
+
+table.track-table
+{
+    margin-top: 1em;
+	thead {
+		th {
+			border: 1px solid $flat-black;
+			background-color: $flat-red;
+		}
+	}
+	tbody {
+		tr:nth-child(2n) td {
+			background-color: inherit;
+		}
+		td {
+			border: 1px solid $flat-black;
+		}
+	}
+}
