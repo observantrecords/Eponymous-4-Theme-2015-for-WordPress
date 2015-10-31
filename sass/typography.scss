@@ -7,32 +7,31 @@
 	Color Schemer Gallery.
 */
 
-
 a {
-	color: $medium-blue;
-	&:hover {
-		color: $flat-red;
-	}
+  color: $medium-blue;
+  &:hover {
+    color: $flat-red;
+  }
 }
 
 body {
-	font-family: $font-family-base;
+  font-family: $font-family-base;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	color: $flat-black;
+  color: $flat-black;
 }
 
 #masthead a, #masthead a:hover {
-	color: $flat-black;
+  color: $flat-black;
 }
 
 #title {
-	font-family: 'Merriweather Sans', 'Lucida Sans Unicode', sans-serif;
-	text-transform: lowercase;
-	a {
-		text-decoration: none;
-		color: $flat-black;
-	}
+  font-family: 'Merriweather Sans', 'Lucida Sans Unicode', sans-serif;
+  text-transform: lowercase;
+  a {
+    text-decoration: none;
+    color: $flat-black;
+  }
 }
 
