@@ -13,8 +13,12 @@ body {
 }
 
 #masthead {
-  background-color: inherit;
-  background-image: none;
+  background-color: #252525;
+  background-image: url('assets/graphics/crossed_stripes.png');
+}
+
+#title {
+  margin-top: 10px;
 }
 
 #content {

@@ -21,8 +21,11 @@ body {
   color: #3E4561; }
 
 #masthead {
-  background-color: inherit;
-  background-image: none; }
+  background-color: #252525;
+  background-image: url("assets/graphics/crossed_stripes.png"); }
+
+#title {
+  margin-top: 10px; }
 
 #content #featured {
   margin-bottom: 1.5em; }
@@ -57,13 +60,13 @@ h1, h2, h3, h4, h5, h6 {
   color: #3E4561; }
 
 #masthead a, #masthead a:hover {
-  color: #3E4561; }
+  color: #FFF; }
 
 #title {
   font-family: 'Merriweather Sans', 'Lucida Sans Unicode', sans-serif;
   text-transform: lowercase; }
   #title a {
     text-decoration: none;
-    color: #3E4561; }
+    color: #FFF; }
 
 /*# sourceMappingURL=style.dev.css.map */
