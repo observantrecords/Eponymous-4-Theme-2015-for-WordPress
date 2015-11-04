@@ -14,7 +14,10 @@ body {
 
 #masthead {
   background-color: #252525;
-  background-image: url('assets/graphics/crossed_stripes.png');
+  &.masthead-home {
+    background-image: url('assets/images/restraint-back-cover-cropped.jpg');
+    background-repeat: no-repeat;
+  }
 }
 
 #title {
@@ -42,5 +45,51 @@ table.track-table {
     td {
       border: 1px solid $flat-black;
     }
+  }
+}
+
+@mixin navigation-list-item {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 970px) {
+  #masthead {
+    &.masthead-home {
+      height: 275px;
+    }
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 992px) {
+  #masthead {
+    background-image: url('assets/graphics/crossed_stripes.png');
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 750px) {
+
+  #nav-header {
+    padding: 1em 0 1em 0;
+    text-align: left;
+  }
+
+  #nav-header {
+    ul.links li {
+      @include navigation-list-item;
+      margin-left: 24px;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #masthead {
+    background-image: url('assets/graphics/crossed_stripes.png');
+    height: auto;
   }
 }

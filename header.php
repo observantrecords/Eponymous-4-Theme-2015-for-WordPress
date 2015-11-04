@@ -27,21 +27,22 @@ namespace ObservantRecords\WordPress\Themes\Eponymous4;
 
 <body>
 
-    <div id="masthead">
+    <div id="masthead" class="<?php if ( is_home() ): ?>masthead-home<?php endif; ?>">
         <div class="container">
-            <header class="col-md-4">
-                <h1 id="title">
-                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo __('Home', WP_TEXT_DOMAIN); ?>" rel="home">
-                        <?php bloginfo( 'name' ); ?>
-                    </a>
-                </h1>
-            </header>
-
-            <nav id="nav-header" class="col-md-8">
-                <?php $nav_menu_args = array( 'theme_location' => 'primary', 'items_wrap' => '<ul id="%1$s" class="%2$s links">%3$s</ul>' ); ?>
-                <?php if ( function_exists( 'bootstrap_page_menu' ) ) { $nav_menu_args[ 'fallback_cb' ] = 'bootstrap_page_menu'; } ?>
-                <?php wp_nav_menu( $nav_menu_args ); ?>
-            </nav>
+			<div class="row">
+				<header class="col-md-5">
+					<h1 id="title">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo __('Home', WP_TEXT_DOMAIN); ?>" rel="home">
+							<?php bloginfo( 'name' ); ?>
+						</a>
+					</h1>
+				</header>
+				<nav id="nav-header" class="col-md-7">
+					<?php $nav_menu_args = array( 'theme_location' => 'primary', 'items_wrap' => '<ul id="%1$s" class="%2$s links">%3$s</ul>' ); ?>
+					<?php if ( function_exists( 'bootstrap_page_menu' ) ) { $nav_menu_args[ 'fallback_cb' ] = 'bootstrap_page_menu'; } ?>
+					<?php wp_nav_menu( $nav_menu_args ); ?>
+				</nav>
+			</div>
         </div>
     </div>
 

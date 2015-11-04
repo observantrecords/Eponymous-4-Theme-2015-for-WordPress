@@ -28,6 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #title {
   font-family: 'Merriweather Sans', 'Lucida Sans Unicode', sans-serif;
+  font-size: 54px;
   text-transform: lowercase;
   a {
     text-decoration: none;
@@ -35,3 +36,8 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+@media screen and (max-width: 768px) {
+  #title {
+    font-size: 36px;
+  }
+}
