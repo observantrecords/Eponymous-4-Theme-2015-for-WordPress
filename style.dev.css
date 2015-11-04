@@ -22,9 +22,6 @@ body {
 
 #masthead {
   background-color: #252525; }
-  #masthead.masthead-home {
-    background-image: url("assets/images/restraint-back-cover-cropped.jpg");
-    background-repeat: no-repeat; }
 
 #title {
   margin-top: 10px; }
@@ -44,6 +41,8 @@ table.track-table {
 
 @media screen and (min-width: 970px) {
   #masthead.masthead-home {
+    background-image: url("assets/images/restraint-back-cover-cropped.jpg");
+    background-repeat: no-repeat;
     height: 275px; } }
 @media screen and (min-width: 750px) and (max-width: 992px) {
   #masthead {
