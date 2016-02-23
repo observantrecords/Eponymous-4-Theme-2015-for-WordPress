@@ -12,15 +12,12 @@
 
 namespace ObservantRecords\WordPress\Themes\ObservantRecords2015;
 
-use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Album;
-use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Artist;
-use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Release;
+use ObservantRecords\WordPress\Plugins\ArtistConnector\Eloquent\Models\Album;
 
-$album_model = new Album();
-$lps = $album_model->getManyBy( 'album_format_id', 1,  array( 'order_by' => 'album_order' ) );
-$eps = $album_model->getManyBy( 'album_format_id', 3,  array( 'order_by' => 'album_order' ) );
-$singles = $album_model->getManyBy( 'album_format_id', 2,  array( 'order_by' => 'album_order' ) );
-$compilations = $album_model->getManyBy( 'album_format_id', 4,  array( 'order_by' => 'album_order' ) );
+$lps = Album::with( 'artist', 'primary_release' )->where( 'album_format_id', 1 )->orderBy( 'album_order' )->get();
+$eps = Album::with( 'artist', 'primary_release' )->where( 'album_format_id', 3 )->orderBy( 'album_order' )->get();
+$singles = Album::with( 'artist', 'primary_release' )->where( 'album_format_id', 2 )->orderBy( 'album_order' )->get();
+$compilations = Album::with( 'artist', 'primary_release' )->where( 'album_format_id', 4 )->orderBy( 'album_order' )->get();
 
 $albums = array(
 	'Albums' => $lps,
@@ -28,9 +25,6 @@ $albums = array(
 	'Singles' => $singles,
 	'Compilations' => $compilations,
 );
-
-$artist_model = new Artist();
-$release_model = new Release();
 
 $album_entries = get_posts( array(
 	'post_type' => 'album',
@@ -67,9 +61,7 @@ endif;
 				<?php endif; ?>
 				<?php foreach ($releases as $album): ?>
 						<?php if ( ( false !== ( array_search( $album->album_alias, $album_aliases ) ) ) && (boolean) $album->album_is_visible === true ): ?>
-							<?php $album->release = $release_model->get( $album->album_primary_release_id ); ?>
-							<?php $album->artist = $artist_model->get( $album->album_artist_id ); ?>
-							<?php $cover_url_base = TemplateTags::get_cdn_uri() . '/artists/' . $album->artist->artist_alias . '/albums/' . $album->album_alias . '/' . strtolower($album->release->release_catalog_num) . '/images'; ?>
+							<?php $cover_url_base = TemplateTags::get_cdn_uri() . '/artists/' . $album->artist->artist_alias . '/albums/' . $album->album_alias . '/' . strtolower($album->primary_release->release_catalog_num) . '/images'; ?>
 			<div class="col-md-3">
 
 				<p>
