@@ -12,7 +12,7 @@
 
 namespace ObservantRecords\WordPress\Themes\ObservantRecords2015;
 
-use ObservantRecords\WordPress\Plugins\ArtistConnector\Eloquent\Models\Album;
+use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Albums\Album;
 
 $lps = Album::with( 'artist', 'primary_release' )->where( 'album_format_id', 1 )->orderBy( 'album_order' )->get();
 $eps = Album::with( 'artist', 'primary_release' )->where( 'album_format_id', 3 )->orderBy( 'album_order' )->get();

@@ -12,21 +12,15 @@
 
 namespace ObservantRecords\WordPress\Themes\Eponymous4;
 
-use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Release;
-use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Track;
+use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Albums\Release;
 use \ObservantRecords\WordPress\Themes\ObservantRecords2015\TemplateTags;
 
 $release_alias = get_post_meta( get_the_ID(), '_ob_release_alias' );
 
 if ( !empty( $release_alias )):
-	$release_model = new Release();
-	$release = $release_model->getBy('release_alias', $release_alias);
-
-	if ( !empty( $release) ):
-		$track_model = new Track();
-		$tracks = $track_model->getReleaseTracks( $release->release_id );
-	endif;
-
+	$release = Release::with(['tracks' => function ( $query ) {
+		$query->with('song', 'recording.audio')->orderBy('track_disc_num')->orderBy('track_track_num');
+	}])->where('release_alias', $release_alias )->first();
 endif;
 ?>
 
@@ -57,7 +51,7 @@ endif;
 
 	<div <?php post_class(); ?>>
 		<?php if ( is_single() ): ?>
-			<?php if ( count( $tracks ) > 0 ): ?>
+			<?php if ( count( $release->tracks ) > 0 ): ?>
 				<table class="track-table table table-striped">
 					<thead>
 					<tr>
@@ -67,7 +61,7 @@ endif;
 					</tr>
 					</thead>
 					<tbody>
-					<?php foreach ($tracks as $track): ?>
+					<?php foreach ($release->tracks as $track): ?>
 						<tr>
 							<td class="track-column"><?php echo $track->track_track_num; ?></td>
 							<td>
@@ -83,9 +77,9 @@ endif;
 								<?php endif; ?>
 							</td>
 							<td class="play-column">
-								<?php if ((boolean) $track->track_audio_is_linked === true && !empty( $track->audio ) ): ?>
+								<?php if ((boolean) $track->track_audio_is_linked === true && !empty( $track->recording->audio ) ): ?>
 									<audio id="track-<?php echo $track->track_recording_id; ?>" preload="none">
-										<?php foreach ($track->audio as $audio): ?>
+										<?php foreach ($track->recording->audio as $audio): ?>
 											<source src="/audio/<?php echo $audio->audio_id; ?>/" type="<?php echo $audio->audio_file_type;?>" />
 										<?php endforeach; ?>
 									</audio>
