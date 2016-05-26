@@ -15,12 +15,6 @@ namespace ObservantRecords\WordPress\Themes\ObservantRecords2015;
 use ObservantRecords\WordPress\Plugins\ArtistConnector\Models\Albums\Track;
 
 $lyrics = get_post_meta( get_the_ID(), '_ob_track_lyrics', true );
-$track_alias = get_post_meta( get_the_ID(), '_ob_track_alias', true );
-
-$track = null;
-if ( !empty( $track_alias ) ):
-	$track = Track::with('recording.audio')->where('track_alias', $track_alias)->first();
-endif;
 
 ?>
 
@@ -46,17 +40,6 @@ endif;
 	</header>
 
 	<div <?php post_class(); ?>>
-
-		<?php if ( !empty( $track->recording->audio ) ): ?>
-
-		<h3>Listen</h3>
-
-		<audio id="track-<?php echo $track->track_recording_id; ?>" controls>
-			<?php foreach ($track->recording->audio as $audio): ?>
-				<source src="/audio/<?php echo $audio->audio_id; ?>/" type="<?php echo $audio->audio_file_type;?>" />
-			<?php endforeach; ?>
-		</audio>
-		<?php endif; ?>
 
 		<?php if ( get_the_content() != '' ): ?>
 			<h3>About this track</h3>
